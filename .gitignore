@@ -1,0 +1,74 @@
+# Java build artifacts
+target/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Logs
+*.log
+logs/
+*.pid
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Maven
+.mvn/
+!**/src/main/**/.gitkeep
+!**/src/test/**/.gitkeep
+.settings/
+dependency-reduced-pom.xml
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Spring Boot
+spring.log
+
+# Environment files
+.env
+*.env
+
+# Database files
+*.h2.db
+*.mv.db
+*.db
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+
+# Test reports
+test-output/
+surefire-reports/
+jacoco.exec
+
+# IDEs and editors
+.vscode/
+*.classpath
+*.project
+
+# SonarQube
+.sonar/
+.scannerwork/
+
+# IntelliJ-specific cache
+.idea/modules.xml
+.idea/*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/libraries/
+
+# Local configuration files
+application-local.yml
+application-local.properties
