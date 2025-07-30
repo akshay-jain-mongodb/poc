@@ -12,6 +12,7 @@ out/
 *.log
 logs/
 *.pid
+target/*.class
 
 # OS files
 .DS_Store
