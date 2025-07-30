@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-@Slf4j
+
 @Service
 public class MongoEntityEventHandler {
 
@@ -17,6 +17,6 @@ public class MongoEntityEventHandler {
     @Async("mongoEventExecutor")
     public void handleAsync(MongoEntityEvent<?> event) {
         logger.info("----Inside async thread----");
-        log.info("Handled event asynchronously: type={}, entity={}", event.getType(), event.getEntity());
+        logger.info("Handled event asynchronously: type={}, entity={}", event.getType(), event.getEntity());
     }
 }

@@ -46,7 +46,7 @@ spring.log
 *.swp
 *.swo
 *.tmp
-
+*.class
 # Test reports
 test-output/
 surefire-reports/
