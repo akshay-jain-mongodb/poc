@@ -1,8 +1,7 @@
 package com.learning.triggers;
 
-import com.learning.triggers.registry.CollectionOperationRegistry;
+import com.learning.triggers.handlers.OperationDispatcher;
 import com.learning.triggers.service.CombinedService;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,17 +13,21 @@ public class TriggersMongodbApplication implements CommandLineRunner {
     @Autowired
     CombinedService combinedService;
 
-   private ObjectProvider<CollectionOperationRegistry> registryProvider;
-
-
     public static void main(String[] args) {
         SpringApplication.run(com.learning.triggers.TriggersMongodbApplication.class, args);
     }
 
+    private OperationDispatcher dispatcher;
+
+    public TriggersMongodbApplication(OperationDispatcher dispatcher) {
+        this.dispatcher = dispatcher;
+    }
+
     @Override
     public void run(String... args) throws Exception {
- //       combinedService.performAction();
-
-        registryProvider.getObject().invokeHandler("user", "insert");
+        dispatcher.dispatch("user", "insert", null);
+        dispatcher.dispatch("customer", "insert", null);
+        dispatcher.dispatch("user", "update", null);
+        dispatcher.dispatch("customer", "update", null);
     }
 }

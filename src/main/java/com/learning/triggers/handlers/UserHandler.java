@@ -1,22 +1,25 @@
 package com.learning.triggers.handlers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 
-@Component
-public class UserHandler {
+import java.util.Map;
 
-    @CollectionOperationHandler(collection = "user", operation = "insert")
-    public void insertUser(Object payload) {
-        System.out.println("Inserting user: " + payload);
+
+@Component("user")
+public class UserHandler implements CollectionHandler{
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+    @OperationMapping(operation = "insert")
+    public void insert(Map<String, Object> data) {
+        System.out.println("Inside User Insert");
     }
 
-    @CollectionOperationHandler(collection = "user", operation = "update")
-    public void updateUser(Object payload) {
-        System.out.println("Updating user: " + payload);
-    }
-
-    @CollectionOperationHandler(collection = "user", operation = "delete")
-    public void deleteUser(Object payload) {
-        System.out.println("Deleting user: " + payload);
+    @OperationMapping(operation = "update")
+    public void update(Map<String, Object> data) {
+        System.out.println("Inside User Update");
     }
 }

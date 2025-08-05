@@ -7,7 +7,6 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CollectionOperationHandler {
-    String collection();
-    String operation(); // "insert", "update", "delete"
+public @interface OperationMapping {
+    String operation();
 }

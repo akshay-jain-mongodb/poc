@@ -1,4 +1,4 @@
-package com.learning.dynamic.handlers;
+package com.learning.triggers.handlers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

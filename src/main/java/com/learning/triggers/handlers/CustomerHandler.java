@@ -2,21 +2,19 @@ package com.learning.triggers.handlers;
 
 import org.springframework.stereotype.Component;
 
-@Component
-public class CustomerHandler {
+import java.util.Map;
 
-    @CollectionOperationHandler(collection = "customer", operation = "insert")
-    public void insertCustomer(Object payload) {
-        System.out.println("Inserting customer: " + payload);
+@Component("customer")
+public class CustomerHandler implements  CollectionHandler{
+
+    @OperationMapping(operation = "insert")
+    public void insert(Map<String, Object> data) {
+        System.out.println("Inside customer Insert");
     }
 
-    @CollectionOperationHandler(collection = "customer", operation = "update")
-    public void updateCustomer(Object payload) {
-        System.out.println("Updating customer: " + payload);
-    }
+    @OperationMapping(operation = "update")
+    public void update(Map<String, Object> data) {
+        System.out.println("Inside customer Update");
 
-    @CollectionOperationHandler(collection = "customer", operation = "delete")
-    public void deleteCustomer(Object payload) {
-        System.out.println("Deleting customer: " + payload);
     }
 }
